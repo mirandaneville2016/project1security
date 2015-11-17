@@ -1,5 +1,6 @@
 package project1security;
-
-public class users {
+import java.util.Scanner;
+public class users
+{
 
 }

@@ -1,4 +1,6 @@
 package project1security;
+import java.util.Arrays; 
+
 
 public class generator 
 {
@@ -33,6 +35,8 @@ public class generator
 	keyList[23] = '*';
 	keyList[24] = 'y';
 	keyList[25] = 'z';
+	
+	
 	
 
 }
