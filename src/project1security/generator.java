@@ -1,14 +1,13 @@
 package project1security;
-import java.util.Arrays; 
-
+import java.util.*;
 
 public class generator 
 {
 	 public static void main(String[] args) 
 	 {
-	char[] keyList; 
+	byte[] keyList; 
 	
-	keyList = new char[26];
+	keyList = new byte[26];
 	keyList[0] = '@';
 	keyList[1] = 'b';
 	keyList[2] = 'c';
