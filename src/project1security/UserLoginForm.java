@@ -32,7 +32,6 @@ public class UserLoginForm extends JFrame {
 	private static void createAndShowGUI(){
 		//Create and set up window
 		JFrame frame = new UserLoginForm();
-		
 		//Display the window
 		frame.pack();
 		frame.setVisible(true);
