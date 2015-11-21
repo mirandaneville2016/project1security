@@ -1,17 +1,13 @@
-import java.security.MessageDigest;
-import java.util.Arrays;
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
+package project1security;
+
 import javax.crypto.spec.SecretKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 
 import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
 
 public class AES {
   static String IV = "AAAAAAAAAAAAAAAA";
-  static String plaintext = "16 bit password here"; /*Note null padding*/
+  static String plaintext = "0123456789abcdef"; /*Note null padding*/
   static String encryptionKey = "01a2b3c4d5e6f789";
   public static void main(String [] args) {
     try {
