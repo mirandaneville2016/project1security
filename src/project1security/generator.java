@@ -24,6 +24,7 @@ public class generator
 		for (int i = 0; i < u.length(); i++)
 		{
 			if (i<h)
+				temp[i]= u.atChar(i);
 				
 			
 		}
