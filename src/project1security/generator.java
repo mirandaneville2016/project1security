@@ -6,11 +6,6 @@ import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 public class generator 
 {
-
-	private static final String Google = null;
-	public String siteName = Google; //for testing purposes will change when siteName is written elsewhere in program.//
-	public String use = User.getUsername();
-	public String si = siteName;
 	
 	
 	 //* below array creates the key to create the password//
