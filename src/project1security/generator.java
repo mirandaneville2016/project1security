@@ -15,7 +15,7 @@ public class generator
 	// this method is where all of the cool stuff happens, splits the username in two then puts last half in front followed by 
 	// the sitename followed by the last half of the username.  Then runs it against the key
 	public String securepword(String u,String s)
-	{	
+try	{	
 		String securepword = null;
 		byte[] temp = null;
 		byte[] newName = null;
@@ -85,7 +85,7 @@ public class generator
 			
 		}
 		return yon;
-	}
+	}throw (NullPointerException);
 	
 }
      
