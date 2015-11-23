@@ -42,8 +42,22 @@ public class generator
 			newName[t] = temp [p];
 		}
 		//sets it against the key
-		
-		
+		byte[] pw = null;
+		for (int x = 0; x < newName.length; x ++)
+		{
+			for (int z = 0; z < alpha.length; z ++)
+			{
+				if (newName[x] == alpha[z])
+				{
+					pw[x] = keyList[z];
+					break;
+				}
+					
+			}
+			securepword = pw.toString();
+		}
+		return securepword;
+				
     
 	}
 	
