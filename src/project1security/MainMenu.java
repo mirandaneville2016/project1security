@@ -68,7 +68,7 @@ public class MainMenu {
 
 
 
-		public Screen(int width, int height) {
+		public void screen(int width, int height) {
 
 
 
