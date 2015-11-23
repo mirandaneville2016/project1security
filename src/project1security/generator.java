@@ -8,19 +8,23 @@ public class generator
 {
 
 	private static final String Google = null;
-	public String siteName = Google;
+	public String siteName = Google; //for testing purposes will change when siteName is written elsewhere in program.//
 	public String use = User.getUsername();
 	public String si = siteName;
 	
 	
-	 
+	 //* below array creates the key to create the password//
 	private final byte[] keyList = new byte[]{'@','b','c','d','3','f','g','4','!','j','k','7','m','n','0','p','q','r','5','+','u','v','w','*','y','z'};
-	
-	public String newName(String u,String s)
-	{
+	private final byte[] alpha= new byte[] {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+	// this method is where all of the cool stuff happens, splits the username in two then puts last half in front followed by 
+	// the sitename followed by the last half of the username.  Then runs it against the key
+	public String securepword(String u,String s)
+	{	
+		String securepword = null;
 		byte[] temp = null;
 		byte[] newName = null;
 		int h = u.length()/2;
+		//creates new word
 		for (int i = 0; i < u.length(); i++)
 		{
 			if (i<h)
@@ -37,6 +41,9 @@ public class generator
 		{
 			newName[t] = temp [p];
 		}
+		//sets it against the key
+		
+		
     
 	}
 	
