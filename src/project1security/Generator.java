@@ -4,17 +4,14 @@ import java.io.*;
 
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
-public class generator 
+public class Generator 
 {
 	
 	
-	 //* below array creates the key to create the password//
-	private final byte[] keyList = new byte[]{'@','b','c','d','3','f','g','4','!','j','k','7','m','n','0','p','q','r','5','+','u','v','w','*','y','z'};
-	private final byte[] alpha= new byte[] {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-	private final byte[] caps = new byte[] {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+	
 	// this method is where all of the cool stuff happens, splits the username in two then puts last half in front followed by 
 	// the sitename followed by the last half of the username.  Then runs it against the key
-	public String securepword(String u,String s)
+	public String securepword(String u,String s){
 try	{	
 		String securepword = null;
 		byte[] temp = null;
@@ -37,6 +34,8 @@ try	{
 		{
 			newName[t] = temp [p];
 		}
+		
+
 		//sets it against the key
 		byte[] pw = null;
 		for (int x = 0; x < newName.length; x ++)
@@ -68,8 +67,8 @@ try	{
 				 securepword = securepword + "S";
 			 }
 		}
-		
-		return securepword;
+		else{
+		return securepword;}
 				
     
 	}
@@ -88,8 +87,12 @@ try	{
 	}throw (NullPointerException);
 	
 }
+}
      
-    
+ //* below array creates the key to create the password//
+	private final byte[] keyList = new byte[] {'@','b','c','d','3','f','g','4','!','j','k','7','m','n','0','p','q','r','5','+','u','v','w','*','y','z'};
+	private final byte[] alpha= new byte[] {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+	private final byte[] caps = new byte[] {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};}   
 
 
 
