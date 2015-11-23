@@ -6,7 +6,7 @@ import javax.crypto.Cipher;
 
 public class Encrypt {
   static String IV = "AAAAAAAAAAAAAAAA";
-  static String plaintext = "0123456789abcdef"; /*Note null padding*/
+  static String plaintext = "0123456789abcd00"; /*Note null padding*/
   static String encryptionKey = "01a2b3c4d5e6f789";
   static int maxLength=16;
   static int textLength=plaintext.length();
