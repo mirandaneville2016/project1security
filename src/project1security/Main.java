@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args)
 	{
-		MainMenu here = new MainMenu();
+		new MainMenu();
 		Generator pwd = new Generator();
 		pwd.securepword("Miranda", "Yahoo");
 		

@@ -1,14 +1,21 @@
 package project1security;
 
-import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.Scanner;
 
-import javafx.scene.control.Menu;
-import sun.security.tools.keytool.Main;
-
-import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
-import java.util.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 public class Login extends JFrame {
   /**
@@ -19,7 +26,7 @@ JButton blogin;
   JPanel loginpanel;
   JTextField txuser;
   JTextField pass;
-  JButton newUSer;
+  JButton newUser;
   JLabel username;
   JLabel password;
 
@@ -31,7 +38,7 @@ JButton blogin;
     loginpanel = new JPanel();
     txuser = new JTextField(15);
     pass = new JPasswordField(15);
-    newUSer = new JButton("New User?");
+    newUser = new JButton("New User?");
     username = new JLabel("User - ");
     password = new JLabel("Pass - ");
 
@@ -43,14 +50,14 @@ JButton blogin;
     txuser.setBounds(70,30,150,20);
     pass.setBounds(70,65,150,20);
     blogin.setBounds(110,100,80,20);
-    newUSer.setBounds(110,135,80,20);
+    newUser.setBounds(110,135,80,20);
     username.setBounds(20,28,80,20);
     password.setBounds(20,63,80,20);
 
     loginpanel.add(blogin);
     loginpanel.add(txuser);
     loginpanel.add(pass);
-    loginpanel.add(newUSer);
+    loginpanel.add(newUser);
     loginpanel.add(username);
     loginpanel.add(password);
 
@@ -81,8 +88,8 @@ JButton blogin;
         try {
           File file = new File("userPass.txt");
           Scanner scan = new Scanner(file);;
-          String line = null;
-          FileWriter filewrite = new FileWriter(file, true);
+          //String line = null;
+          //FileWriter filewrite = new FileWriter(file, true);
 
           String usertxt = " ";
           String passtxt = " ";
@@ -94,9 +101,9 @@ JButton blogin;
         	  	usertxt = scan.nextLine();
             	passtxt = scan.nextLine();
         	  if(puname.equals(usertxt) && ppaswd.equals(passtxt)) {
-        		MainMenu menu = new MainMenu();
+        		new MainMenu();
         		dispose(); }   
-            	}
+            	} scan.close();
 
 
 
@@ -119,9 +126,9 @@ JButton blogin;
       }
     });
 
-    newUSer.addActionListener(new ActionListener(){
+    newUser.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e) {
-        NewUser user = new NewUser();
+       new NewUser();
         dispose();
 
       }

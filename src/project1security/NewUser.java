@@ -1,10 +1,20 @@
 package project1security;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
-import java.util.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.Scanner;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 public class NewUser extends JFrame {
   /**
@@ -93,7 +103,7 @@ public class NewUser extends JFrame {
         filewrite.close();
         JOptionPane.showMessageDialog(null,"Account has been created.");
         dispose();
-        Login log = new Login();
+        new Login();
 
 
 
