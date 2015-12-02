@@ -16,9 +16,6 @@ public class Decrypt {
 public static void main(String [] args) {
     try {
       
-//      System.out.println("==Java==");
-//      System.out.println("plain:   " + plaintext);
-
       byte[] cipher = Cyphertext;
 
       System.out.print("cipher:  ");
@@ -37,7 +34,6 @@ public static void main(String [] args) {
     	  	charDecrypt.add(decrypted.charAt(i));
 				
 		}
-//      System.out.println("length of bytes " + byteDecrypt.length);
       
       int num=0;
       int len=15;
@@ -46,61 +42,15 @@ public static void main(String [] args) {
       {
     	  charDecrypt.remove(len);
     	  num++;
-    	  System.out.println(num);
+    	  System.out.println("pass"+num+" = "+charDecrypt);
     	  len--;
       }
-//      for(int len=15;len>8;len--)
-//      {
-//    	  if(byteDecrypt[len]='0')
-    		  
-//    	  num++;
-//      }
+  
+      String decrypting = charDecrypt.stream().map(e->e.toString()).reduce((acc, e) -> acc + e).get();
       
-      
-//      System.out.println("position number 16 "+byteDecrypt [0]);
-      char[] temp = new char [charDecrypt.size()];
-      for(int i =0; i< charDecrypt.size(); i ++)
-      {
-    	  temp[i] = charDecrypt.get(i);
-      }
-      decrypted = temp.toString();
-      
-      
-      
-//      int len=15;
-          
-//      System.out.println(decrypted.substring(len));
-      
-//      for(int len = 15;len>8;len --)
-//      {
-//    	  num ++;
-//    	  System.out.println(num);  
-//    	  if(decrypted.substring(len)=="0")
-//    	  {
-//    	    	  decrypted=decrypted.replace(decrypted.substring(len),"");
-//    	  }
-//    	  else
-//    		  break;
-//     }
-      
-      System.out.println("decrypt: " + decrypted);
-//      while(decrypted.substring(len)=="48")
-//      {
-//    	  System.out.println("decrypt: " + decrypted);
-//    	  num = 0;
-//    	  num++;
-//    	  System.out.println(num);
-//    	  len --;
-//      }
-      
-//      decrypted = decrypted.substring(0, decrypted.length()-num);
-      
-//      if(decrypted.substring(15)=="0")
-//      {
-//    	  decrypted=decrypted.replace(decrypted.substring(15),"");
-//      }
-           
-      
+      System.out.println("charDecrypt: " + charDecrypt);
+      System.out.println("decrypting: " + decrypting);
+
     } catch (Exception e) {
       e.printStackTrace();
     } 
