@@ -5,9 +5,9 @@ public class Generator
 {
 
 	//* below array creates the key to create the password//
-		private final byte[] keyList = new byte[] {'@','b','c','d','3','f','g','4','!','j','k','7','m','n','0','p','q','r','5','+','u','v','w','*','y','z'};
-		private final byte[] alpha= new byte[] {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-		private final byte[] caps = new byte[] {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};  
+		private final char[] keyList = new char[] {'@','b','c','d','3','f','g','4','!','j','k','7','m','n','0','p','q','r','5','+','u','v','w','*','y','z'};
+		private final char[] alpha= new char[] {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+		private final char[] caps = new char[] {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};  
 
 	
 	
@@ -15,7 +15,8 @@ public class Generator
 	// the sitename followed by the last half of the username.  Then runs it against the key
 	public String securepword(String u,String s)
 	{
-		
+		u = u.toLowerCase();
+		s = s.toLowerCase();
 		String pword = "";
 		ArrayList <Character> temp = new ArrayList<Character>();
 		ArrayList <Character> newName = new ArrayList<Character>();
@@ -35,7 +36,7 @@ public class Generator
 			newName.add(s.charAt(k));
 			System.out.println(newName);
 		}
-		for (int p = 0; p <= temp.size(); p ++)
+		for (int p = 0; p < temp.size(); p ++)
 		{
 			newName.add(temp.get(p));
 			System.out.println(newName);
@@ -43,7 +44,7 @@ public class Generator
 		
 
 		//sets it against the key
-		byte[] pw = new byte[newName.size()];
+		char[] pw = new char[newName.size()];
 		for (int x = 0; x < newName.size(); x ++)
 		{
 			for (int z = 0; z < alpha.length; z ++)
@@ -63,8 +64,11 @@ public class Generator
 			}
 			if(isThere(pw)== false)
 			{
-				pw[pw.length] = '@';
+				pw[pw.length-1] = '@';
 			}
+			
+		   // String pword = pw.length.map(e->e.toString()).reduce((acc, e) -> acc + e).get();
+			
 			pword = pw.toString();
 		}
 		if (pword.length()< 9)
@@ -82,7 +86,7 @@ public class Generator
 				
     
 	}
-	public boolean isThere(byte[] s)
+	public boolean isThere(char[] s)
 	{
 		boolean yon = false;
 		for (int i = 0; i < s.length; i++)
