@@ -3,6 +3,8 @@ package project1security;
 import javax.crypto.spec.SecretKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 
+import java.util.ArrayList;
+
 import javax.crypto.Cipher;
 
 public class Decrypt {
@@ -27,17 +29,22 @@ public static void main(String [] args) {
       String decrypted = decrypt(cipher, encryptionKey);
 
       System.out.println("decrypt: " + decrypted);
+
+      ArrayList<Character> charDecrypt = new ArrayList<Character>();
       
-      byte [] byteDecrypt = decrypted.getBytes();
-      
+      for (int i = 0; i < decrypted.length(); i++)
+		{
+    	  	charDecrypt.add(decrypted.charAt(i));
+				
+		}
 //      System.out.println("length of bytes " + byteDecrypt.length);
       
       int num=0;
       int len=15;
 
-      while(byteDecrypt[len]=='0')
+      while(charDecrypt.get(len)=='0')
       {
-    	  byteDecrypt[len]=(Byte) null;
+    	  charDecrypt.remove(len);
     	  num++;
     	  System.out.println(num);
     	  len--;
@@ -51,7 +58,12 @@ public static void main(String [] args) {
       
       
 //      System.out.println("position number 16 "+byteDecrypt [0]);
-      decrypted = new String(byteDecrypt);
+      char[] temp = new char [charDecrypt.size()];
+      for(int i =0; i< charDecrypt.size(); i ++)
+      {
+    	  temp[i] = charDecrypt.get(i);
+      }
+      decrypted = temp.toString();
       
       
       
