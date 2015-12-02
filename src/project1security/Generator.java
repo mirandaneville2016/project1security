@@ -29,13 +29,16 @@ public class Generator
 				newName.add(u.charAt(i));
 				
 		}
+		System.out.println(newName +" "+ temp);
 		for (int k = 0; k < s.length(); k ++)
 		{
 			newName.add(s.charAt(k));
+			System.out.println(newName);
 		}
-		for (int p = 0, t = newName.size(); p <= temp.size(); p ++, t ++)
+		for (int p = 0; p <= temp.size(); p ++)
 		{
-			newName.add(t, temp.get(p));
+			newName.add(temp.get(p));
+			System.out.println(newName);
 		}
 		
 
@@ -48,10 +51,12 @@ public class Generator
 				if ( x == 5)
 				{
 					pw[x] = caps[z];
+					System.out.println(pw);
 				}
 				else if(newName.get(x) == alpha[z])
 				{
 					pw[x] = keyList[z];
+					System.out.println(pw);
 					
 				}
 					
