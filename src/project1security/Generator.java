@@ -1,8 +1,5 @@
 package project1security;
 import java.util.*;
-import java.io.*;
-
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 public class Generator 
 {
@@ -20,31 +17,31 @@ public class Generator
 	{
 		
 		String pword = "";
-		byte[] temp = null;
-		byte[] newName = null;
+		ArrayList <Character> temp = new ArrayList<Character>();
+		ArrayList <Character> newName = new ArrayList<Character>();
 		int h = u.length()/2;
 		//creates new word
 		for (int i = 0; i < u.length(); i++)
 		{
 			if (i<h)
-				temp[i]= (byte) u.charAt(i);
+				temp.add(u.charAt(i));
 			else 
-				newName[i] = (byte) u.charAt(i);
+				newName.add(u.charAt(i));
 				
 		}
-		for (int k = 0, j = newName.length; k < s.length(); k ++, j++)
+		for (int k = 0; k < s.length(); k ++)
 		{
-			newName[j] = (byte) s.charAt(k);
+			newName.add(s.charAt(k));
 		}
-		for (int p = 0, t = newName.length; p <= temp.length; p ++, t ++)
+		for (int p = 0, t = newName.size(); p <= temp.size(); p ++, t ++)
 		{
-			newName[t] = temp [p];
+			newName.add(t, temp.get(p));
 		}
 		
 
 		//sets it against the key
-		byte[] pw = null;
-		for (int x = 0; x < newName.length; x ++)
+		byte[] pw = new byte[newName.size()];
+		for (int x = 0; x < newName.size(); x ++)
 		{
 			for (int z = 0; z < alpha.length; z ++)
 			{
@@ -52,7 +49,7 @@ public class Generator
 				{
 					pw[x] = caps[z];
 				}
-				else if(newName[x] == alpha[z])
+				else if(newName.get(x) == alpha[z])
 				{
 					pw[x] = keyList[z];
 					
