@@ -55,13 +55,13 @@ public class NewUser extends JFrame {
     setVisible(true);
 
     Writer writer = null;
-    File check = new File("p1secure.txt");
+    File check = new File("userPass.txt");
     if(check.exists()){
 
       //Checks if the file exists. will not add anything if the file does exist.
     }else{
       try{
-        File texting = new File("p1secure.txt");
+        File texting = new File("userPass.txt");
         writer = new BufferedWriter(new FileWriter(texting));
         writer.write("message");
       }catch(IOException e){

@@ -92,15 +92,15 @@ JButton blogin;
           //FileWriter filewrite = new FileWriter(file, true);
 
           String usertxt = " ";
-          byte[] passtxt;
+          //String passtxt = " ";
           String puname = txuser.getText();
-          String ppaswd = pass.getText();
+          String ppaswd = new String(pass.getText());
 
 
           while (scan.hasNext()) {
         	  	usertxt = scan.nextLine();
-            	passtxt = scan.nextLine().getBytes();
-            	String decrypted = Decrypt.decrypt(passtxt, Decrypt.encryptionKey);
+            	byte [] passtxt1 = scan.nextLine().getBytes();
+            	String decrypted = Decrypt.decrypt(passtxt1, Decrypt.encryptionKey).toString();
         	  if(puname.equals(usertxt) && ppaswd.equals(decrypted)) {
         		new MainMenu();
         		dispose(); }   

@@ -5,7 +5,9 @@ import javax.crypto.spec.IvParameterSpec;
 
 import java.util.ArrayList;
 
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
 
 public class Decrypt {
   static String IV = "AAAAAAAAAAAAAAAA";
@@ -60,6 +62,15 @@ public static void main(String [] args) {
     Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding", "SunJCE");
     SecretKeySpec key = new SecretKeySpec(encryptionKey.getBytes("UTF-8"), "AES");
     cipher.init(Cipher.DECRYPT_MODE, key,new IvParameterSpec(IV.getBytes("UTF-8")));
-    return new String(cipher.doFinal(cipherText),"UTF-8");
+    byte [] newci = null;
+    try{
+    	newci = cipher.doFinal(cipherText);
+    }catch(IllegalBlockSizeException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    } catch (BadPaddingException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace(); }
+  return new String(newci);
   }
 }
