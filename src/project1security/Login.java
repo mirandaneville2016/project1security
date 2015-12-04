@@ -100,7 +100,7 @@ JButton blogin;
           while (scan.hasNext()) {
         	  	usertxt = scan.nextLine();
             	passtxt = scan.nextLine().getBytes();
-            	String decrypted = AES.decrypt(passtxt, AES.encryptionKey);
+            	String decrypted = Decrypt.decrypt(passtxt, Decrypt.encryptionKey);
         	  if(puname.equals(usertxt) && ppaswd.equals(decrypted)) {
         		new MainMenu();
         		dispose(); }   
