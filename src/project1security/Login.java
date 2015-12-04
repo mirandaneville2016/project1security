@@ -32,7 +32,7 @@ JButton blogin;
 
 
   public Login(){
-    super("Login Autentification");
+    super("Login Authentification");
 
     blogin = new JButton("Login");
     loginpanel = new JPanel();
@@ -66,13 +66,13 @@ JButton blogin;
     setVisible(true);
 
     Writer writer = null;
-    File check = new File("userPass.txt");
+    File check = new File("p1secure.txt");
     if(check.exists()){
 
       //Checks if the file exists. will not add anything if the file does exist.
     }else{
       try{
-        File texting = new File("userPass.txt");
+        File texting = new File("p1secure.txt");
         writer = new BufferedWriter(new FileWriter(texting));
         writer.write("message");
       }catch(IOException e){
@@ -86,7 +86,7 @@ JButton blogin;
     blogin.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         try {
-          File file = new File("userPass.txt");
+          File file = new File("p1secure.txt");
           Scanner scan = new Scanner(file);;
           //String line = null;
           //FileWriter filewrite = new FileWriter(file, true);
