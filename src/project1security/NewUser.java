@@ -75,10 +75,12 @@ public class NewUser extends JFrame {
     create.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         try {
-    File file = new File("p1secure.txt");
-    Scanner scan = new Scanner(file);;
-
+      File encfile = new File("p1secure.txt");
+      File file = new File("userPass.txt");
+      Scanner scan = new Scanner(file);;
+      
       FileWriter filewrite = new FileWriter(file, true);
+      FileWriter encfilewrite = new FileWriter(encfile, true);
 
       String usertxter = " ";
       String passtxter = " ";
@@ -100,9 +102,13 @@ public class NewUser extends JFrame {
         JOptionPane.showMessageDialog(null,"Please insert Username and Password");
         }
         else {
-        	byte[] cipass= Encrypt.encrypt(ppaswder, Encrypt.encryptionKey);
-        filewrite.write(punamer+"\r\n" +cipass+ "\r\n");
+        //write plaintext to userpass 
+        filewrite.write(punamer+"\r\n" +ppaswder+ "\r\n");
         filewrite.close();
+        //write encrypted pass to p1secure
+        byte[] cipass= Encrypt.encrypt(ppaswder, Encrypt.encryptionKey);
+        encfilewrite.write(punamer+"\r\n" +cipass+ "\r\n");
+        encfilewrite.close();
         JOptionPane.showMessageDialog(null,"Account has been created.");
         dispose();
         new Login();
@@ -113,7 +119,7 @@ public class NewUser extends JFrame {
         } catch (IOException d) {
       d.printStackTrace();
     } catch (Exception cipass) {
-			// TODO Auto-generated catch block
+			// TODO Auto-generated catch bloc
 			cipass.printStackTrace();
 		}
 
