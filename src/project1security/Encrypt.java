@@ -2,8 +2,9 @@ package project1security;
 
 import javax.crypto.spec.SecretKeySpec;
 import javax.crypto.spec.IvParameterSpec;
-
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
 
 public class Encrypt {
   static String IV = "AAAAAAAAAAAAAAAA";
@@ -39,6 +40,15 @@ public class Encrypt {
     Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding", "SunJCE");
     SecretKeySpec key = new SecretKeySpec(encryptionKey.getBytes("UTF-8"), "AES");
     cipher.init(Cipher.ENCRYPT_MODE, key,new IvParameterSpec(IV.getBytes("UTF-8")));
-    return cipher.doFinal(plainText.getBytes("UTF-8"));
+    byte [] specs = null;
+    try{ specs = cipher.doFinal(plainText.getBytes("UTF-8"));
+    } catch (IllegalBlockSizeException e){
+    	 // TODO Auto-generated catch block
+        e.printStackTrace();
+    } catch (BadPaddingException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace(); }
+   // return cipher.doFinal(plainText.getBytes("UTF-8"));
+    return specs;
   }
 }
