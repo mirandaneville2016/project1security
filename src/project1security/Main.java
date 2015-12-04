@@ -7,7 +7,6 @@ public class Main {
 		Login log = new Login();
 		Generator pwd = new Generator();
 		MainMenu mm = new MainMenu();
-		User use = new User;
 		mm.getClass();
 		//pwd.securepword(use.getUsername(), "Google");
 		

@@ -100,7 +100,7 @@ public class NewUser extends JFrame {
         JOptionPane.showMessageDialog(null,"Please insert Username and Password");
         }
         else {
-        	byte[] cipass= AES.encrypt(ppaswder, AES.encryptionKey);
+        	byte[] cipass= Encrypt.encrypt(ppaswder, Encrypt.encryptionKey);
         filewrite.write(punamer+"\r\n" +cipass+ "\r\n");
         filewrite.close();
         JOptionPane.showMessageDialog(null,"Account has been created.");
