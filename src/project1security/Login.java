@@ -92,15 +92,16 @@ JButton blogin;
           //FileWriter filewrite = new FileWriter(file, true);
 
           String usertxt = " ";
-          String passtxt = " ";
+          byte[] passtxt;
           String puname = txuser.getText();
           String ppaswd = pass.getText();
 
 
           while (scan.hasNext()) {
         	  	usertxt = scan.nextLine();
-            	passtxt = scan.nextLine();
-        	  if(puname.equals(usertxt) && ppaswd.equals(passtxt)) {
+            	passtxt = scan.nextLine().getBytes();
+            	String decrypted = AES.decrypt(passtxt, AES.encryptionKey);
+        	  if(puname.equals(usertxt) && ppaswd.equals(decrypted)) {
         		new MainMenu();
         		dispose(); }   
             	} scan.close();
@@ -121,7 +122,10 @@ JButton blogin;
           }
         } catch (IOException d) {
           d.printStackTrace();
-        }
+        } catch (Exception decrypted) {
+			// TODO Auto-generated catch block
+			decrypted.printStackTrace();
+		}
 
       }
     });

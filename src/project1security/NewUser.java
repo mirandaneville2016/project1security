@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+
 public class NewUser extends JFrame {
   /**
 	 * 
@@ -99,7 +100,8 @@ public class NewUser extends JFrame {
         JOptionPane.showMessageDialog(null,"Please insert Username and Password");
         }
         else {
-        filewrite.write(punamer+"\r\n" +ppaswder+ "\r\n");
+        	byte[] cipass= AES.encrypt(ppaswder, AES.encryptionKey);
+        filewrite.write(punamer+"\r\n" +cipass+ "\r\n");
         filewrite.close();
         JOptionPane.showMessageDialog(null,"Account has been created.");
         dispose();
@@ -110,7 +112,10 @@ public class NewUser extends JFrame {
         }
         } catch (IOException d) {
       d.printStackTrace();
-    }
+    } catch (Exception cipass) {
+			// TODO Auto-generated catch block
+			cipass.printStackTrace();
+		}
 
       }
     });
