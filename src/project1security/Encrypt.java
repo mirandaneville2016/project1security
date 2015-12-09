@@ -11,10 +11,10 @@ public class Encrypt {
    /*Note null padding*/
   static String encryptionKey = "01a2b3c4d5e6f789";
   static int maxLength=16;
-  public static void main(String [] args) {
-	   String plaintext = User.getPassword();
-       int textLength=plaintext.length();
-
+  public static  byte[] main(String pt) {
+      String plaintext = pt;
+      int textLength = plaintext.length();
+      
 	  while (textLength<maxLength)
 	  {
 		  plaintext = plaintext + "0";
@@ -26,15 +26,17 @@ public class Encrypt {
       System.out.println("plain:   " + plaintext);
 
       byte[] cipher = encrypt(plaintext, encryptionKey);
+      return cipher;
 
-      System.out.print("cipher:  ");
-      for (int i=0; i<cipher.length; i++)
-        System.out.print(new Integer(cipher[i])+" ");
-      System.out.println("");
+      //System.out.print("cipher:  ");
+    //  for (int i=0; i<cipher.length; i++)
+      //  System.out.print(new Integer(cipher[i])+" ");
+      //System.out.println("");
       
     } catch (Exception e) {
       e.printStackTrace();
-    } 
+    }
+	return null; 
   }
 
   public static byte[] encrypt(String plainText, String encryptionKey) throws Exception {

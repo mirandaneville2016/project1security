@@ -106,6 +106,7 @@ public class NewUser extends JFrame {
         filewrite.write(punamer+"\r\n" +ppaswder+ "\r\n");
         filewrite.close();
         //write encrypted pass to p1secure
+        Encrypt.main(ppaswder);
         byte[] cipass= Encrypt.encrypt(ppaswder, Encrypt.encryptionKey);
         encfilewrite.write(punamer+"\r\n" +cipass+ "\r\n");
         encfilewrite.close();
